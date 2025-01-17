@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('penjualan', function (Blueprint $table) {
-            $table->penjualan_id();
+            $table->id('penjualan_id');
             $table->date('tanggal_penjualan');
-            $table->decimal('total_harga', 10, 2);
-            $table->foreignId('pelanggan_id')           // Foreign Key pelanggan_id
-                  ->constrained('pelanggan')            // Referensi tabel pelanggan
-                  ->onDelete('cascade');                // Hapus otomatis jika data pelanggan dihapus
+            $table->decimal('total_harga', 10,2);
+            $table->foreignId('pelanggan_id');
             $table->timestamps();
         });
     }
